@@ -77,7 +77,7 @@ diffcor.dep(r12 = c(.76, .54, .22),
   r23 = c(.25, .65, .90),
   n = c(500, 392, 92), cor.names = NULL, alternative = "one.sided")}
 
-\author{Christian Bloetner
+\author{Christian Blötner
 \email{c.bloetner@gmail.com}}
 \keyword{&htest}
 \references{Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd ed.). Hillsdale, NJ: Lawrence Erlbaum.
