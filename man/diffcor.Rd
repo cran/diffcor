@@ -5,13 +5,13 @@
 \title{Fisher's z-Tests Concerning Difference of Correlations}
 \usage{
 diffcor.one(emp.r, hypo.r, n, cor.names = NULL,
-alternative = c("one.sided", "two.sided"), bonferroni = TRUE, digit = 3, alpha = .05)
+alternative = c("one.sided", "two.sided"), bonferroni = FALSE, digit = 3, alpha = .05)
 
 diffcor.two(r1, r2, n1, n2, cor.names = NULL,
-alternative = c("one.sided", "two.sided"), bonferroni = TRUE, digit = 3, alpha = .05)
+alternative = c("one.sided", "two.sided"), bonferroni = FALSE, digit = 3, alpha = .05)
 
 diffcor.dep(r12, r13, r23, n, cor.names = NULL,
-alternative = c("one.sided", "two.sided"), bonferroni = TRUE, digit = 3, alpha = .05)
+alternative = c("one.sided", "two.sided"), bonferroni = FALSE, digit = 3, alpha = .05)
 }
 
 \arguments{
@@ -40,14 +40,14 @@ diffcor.two() may be useful in replication studies, to test if the original stud
 
 diffcor.dep() can be applied to check if the correlation between one construct with another one (r12) is significantly different/higher/smaller than the correlation of one of the constructs with a third construct (r13), given the correlation of the constructs that are compared (r23).
 
-The outputs for all the three functions provide the test statistic in z-units, p-values, and alpha levels that were corrected in terms of multiple testing according to Bonferroni (if you did not specify bonferroni = FALSE). To help interpret the output, the procedure prompts if a single p value is smaller than the corrected alpha. For diffcor.one() and diffcor.two(), the effect size Cohens q is additionally provided. It is a descriptive index to evaluate differences of independent correlations. Cohen (1988) suggested q = |.10|, |.30| and |.50| as small, moderate, and large differences.
+The outputs for all the three functions provide the test statistic in z-units, p-values, and alpha levels that were corrected in terms of multiple testing according to Bonferroni. To help interpret the output, the procedure prompts if a single p value is smaller than the corrected alpha. For diffcor.one() and diffcor.two(), the effect size Cohens q is additionally provided. According to Cohen (1988), q = |.10|, |.30| and |.50| are considered small, moderate, and large differences, respectively.
 }
 
 \value{
 \item{Fisher_z}{test statistic for correlation difference in units of the standard normal distribution}
 \item{p}{p-value for one- or two-sided testing, depending on alternative = c("one.sided", "two.sided)}
 \item{alpha_Bonferroni}{alpha level which is corrected for multiple testing; not displayed if bonferroni = FALSE; per default, bonferroni is set TRUE}
-\item{Bonferroni_significant}{prompts if a single correlation is significantly different, considering the chosen alpha level and the number of correlations tested; will not be displayed when bonferroni = FALSE}
+\item{Bonferroni_significant}{prompts if a single correlation is significantly different, considering the chosen alpha level and the number of correlations tested}
 \item{Cohen_q}{effect size measure for differences of independent correlations}
 }
 
@@ -84,13 +84,13 @@ cor.names = NULL, alternative = "two.sided")
 diffcor.dep(r12 = c(.76, .54, .22),
   r13 = c(.24, .01, .07), r23 = c(.25, .65, .90),
   n = c(500, 392, 92), cor.names = c("a-b", "c-d", "e-f"),
-  alternative = "one.sided", bonferroni = FALSE, alpha = .01)
+  alternative = "one.sided", alpha = .01)
 
 diffcor.dep(r12 = c(.76, .54, .22),
   r13 = c(.24, .01, .07),
   r23 = c(.25, .65, .90),
   n = c(500, 392, 92), cor.names = NULL,
-  alternative = "one.sided", bonferroni = TRUE)}
+  alternative = "one.sided")}
 
 \author{Christian Blötner
 \email{c.bloetner@gmail.com}}
