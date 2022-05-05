@@ -15,44 +15,38 @@ alternative = c("one.sided", "two.sided"), digit = 3)
 }
 
 \arguments{
-\item{emp.r}{empirically observed correlation}
-\item{hypo.r}{hypothesized correlation which shall be tested}
-\item{n}{sample size in which the observed effect was found}
+\item{emp.r}{Empirically observed correlation}
+\item{hypo.r}{Hypothesized correlation which shall be tested}
+\item{n}{Sample size in which the observed effect was found}
 \item{alpha}{Likelihood of Type I error, DEFAULT = .05}
-\item{cor.names}{Label for the respective correlation (e.g., "IQ-performance").
-This is especially advantageous if you test a series of correlations
-simultaneously, see examples. Per default, cor.names is NULL}
-\item{digit}{number of decimal places for p-values, DEFAULT = 3}
-\item{alternative}{a character string to specify if you wish to test one-sided
+\item{cor.names}{Optional, label for the correlation (e.g., "IQ-performance").
+Per default, cor.names is NULL}
+\item{digit}{Number of digits in the output for all parameters, DEFAULT = 3}
+\item{alternative}{A character string specifying if you wish to test one-sided
 or two-sided differences}
-\item{r1}{first correlation coefficient}
-\item{r2}{second correlation coefficient}
-\item{n1}{sample size the first correlation coeffient is based on}
-\item{n2}{sample size the second correlation coeffient is based on}
-\item{r12}{correlation between first and second construct}
-\item{r13}{correlation between first and third construct}
-\item{r23}{correlation between second and third construct}
+\item{r1}{First correlation coefficient}
+\item{r2}{Second correlation coefficient}
+\item{n1}{Sample size in which the first correlation coeffient was observed}
+\item{n2}{Sample size in which the second correlation coeffient was observed}
+\item{r12}{Correlation between the first and the second construct}
+\item{r13}{Correlation between the first and the third construct}
+\item{r23}{Correlation between the second and the third construct}
 }
 
 \description{
 Computations of Fisher's z-tests concerning differences between correlations.
 
-diffcor.one() could be used to test for differences regarding an expected value,
-e.g., in construct validation.
-
-diffcor.two() may be useful in replication studies, to test if the original study
-and the replication study differed in terms of effects.
-
-diffcor.dep() can be applied to check if the correlation between one construct
-with another one (r12) is significantly different/higher/smaller than the
-correlation of one of the constructs with a third construct (r13), given the
-correlation of the constructs that are compared (r23).
-
-The outputs for all the three functions provide the compared correlations, test
-statistic in z-units, and p-values. For diffcor.one() and diffcor.two(), the
-output further provides confidence intervals of the empirical correlations and
-the effect size Cohens q. According to Cohen (1988), q = |.10|, |.30| and |.50|
-are considered small, moderate, and large differences, respectively.}
+diffcor.one() can be used to test if an observed correlation differs from an
+expected one, for example, in construct validation. diffcor.two() can be used
+to test if the correlation between two variables differs across two independent
+studies. diffcor.dep() can be applied to check if the correlation between two
+variables (r12) differs from the correlation between the first and a third one
+(r13), given the intercorrelation of the compared constructs (r23). All outputs
+provide the compared correlations, test statistic as z-score, and p-values. For
+diffcor.one() and diffcor.two(), the output further provides confidence intervals
+of the empirical correlations and the effect size Cohens q. According to Cohen
+(1988), q = |.10|, |.30| and |.50| are considered small, moderate, and large
+differences, respectively.}
 
 \value{
 \item{r_exp}{Vector of the expected correlations in diffcor.one}
@@ -101,10 +95,10 @@ cor.names = NULL, alternative = "two.sided")
 \email{c.bloetner@gmail.com}}
 \keyword{&htest}
 \references{Cohen, J. (1988). Statistical power analysis for the behavioral
-sciences (2nd ed.). Hillsdale, NJ: Lawrence Erlbaum.
+sciences (2nd ed.). Lawrence Erlbaum.
 
 Eid, M., Gollwitzer, M., & Schmitt, M. (2015). Statistik und Forschungsmethoden
-(4.Auflage) [Statistics and research methods (4th ed.)]. Weinheim Basel: Beltz.
+(4.Auflage) [Statistics and research methods (4th ed.)]. Beltz.
 
 Steiger, J. H. (1980). Tests for comparing elements of a correlation matrix.
 Psychological Bulletin, 87, 245-251.}
