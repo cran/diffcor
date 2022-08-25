@@ -1,4 +1,8 @@
-1ae2cbaf5508e4627da626584834623d *DESCRIPTION
+49a482bc2257aa6c42fcd6382f6f8d71 *DESCRIPTION
 5909ba03ef3c7fec028f43690998b240 *NAMESPACE
-210e2dd763cc636c8aef7c98152a4d2a *R/source_code_diffcor.R
-694dd4b167ed74071db9859993acb333 *man/diffcor.Rd
+aa9ec6ec33bb814178c7f9447d65bc3f *R/diffcor.dep.R
+0214a5219dee0b3058b469d719ce5a1e *R/diffcor.one.R
+e3fe856d20bbabd042168925b05683d5 *R/diffcor.two.R
+4f1de7b974f51f5dbe861b5be04e942e *man/diffcor.dep.Rd
+f4a4452dd752f5673cb9652473912bd4 *man/diffcor.one.Rd
+567b1c1a1469b9f8843042325d7ac941 *man/diffcor.two.Rd
