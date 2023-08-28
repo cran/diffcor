@@ -1,14 +1,15 @@
 Package: diffcor
 Type: Package
 Title: Fisher's z-Tests Concerning Difference of Correlations
-Version: 0.7.2
-Date: 2022-08-25
+Version: 0.8.0
+Depends: R (>= 4.3.0), MASS
+Date: 2023-08-27
 Author: Christian Blötner
 Maintainer: Christian Blötner <c.bloetner@gmail.com>
-Description: Computations of Fisher's z-tests concerning differences between correlations. diffcor.one() tests whether an expected value differs from an observed value, for example, in construct validation. diffcor.two() tests whether the correlation between two constructs differed across two studies/samples. diffcor.dep() checks whether the correlation between two constructs (r12) is significantly different from the correlation between the first construct with a third one (r13), given the intercorrelation of the compared constructs (r23). All outputs provide the compared correlations, test statistic in z-units, and p-values. For diffcor.one() and diffcor.two(), the output further provides confidence intervals of the empirical correlations and the effect size Cohens q. According to Cohen (1988), q = |.10|, |.30| and |.50| are considered small, moderate, and large differences, respectively.
+Description: Computations of Fisher's z-tests concerning different kinds of correlation differences. Additionally, approaches to estimating statistical power via Monte Carlo simulations are implemented. 
 License: GPL (>= 2)
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2022-08-25 07:55:39 UTC; bloetner
+Packaged: 2023-08-28 11:40:18 UTC; christianblotner
 Repository: CRAN
-Date/Publication: 2022-08-25 08:12:37 UTC
+Date/Publication: 2023-08-28 12:00:02 UTC
