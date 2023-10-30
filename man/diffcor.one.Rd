@@ -1,6 +1,7 @@
 \name{diffcor.one}
 \alias{diffcor.one}
-\title{Fisher's z-test of difference between an empirical and a hypothesized correlation}
+\title{Fisher's z-test of difference between an empirical and a hypothesized
+correlation}
 \usage{
 diffcor.one(emp.r, hypo.r, n, alpha = .05, cor.names = NULL,
 alternative = c("one.sided", "two.sided"), digit = 3)}
@@ -18,10 +19,11 @@ or two-sided differences}}
 
 \description{
 The function tests whether an observed correlation differs from an expected one,
-for example, in construct validation. The output provides the compared
-correlations, a z-score, a p-value, a confidence interval, and the effect size
-Cohens q. According to Cohen (1988), q = |.10|, |.30| and |.50| are considered
-small, moderate, and large differences, respectively.}
+for example, in construct validation. All correlations are automatically
+transformed with the Fisher z-transformation prior to computations. The output
+provides the compared correlations, a z-score, a p-value, a confidence interval,
+and the effect size Cohens q. According to Cohen (1988), q = |.10|, |.30| and
+|.50| are considered small, moderate, and large differences, respectively.}
 
 \value{
 \item{r_exp}{Vector of the expected correlations}

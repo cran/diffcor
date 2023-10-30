@@ -1,10 +1,10 @@
-diffpwr.one <- function(n.samples = 1000,
-                        n,
+diffpwr.one <- function(n,
                         emp.r,
                         hypo.r,
                         alpha = .05,
+                        n.samples = 1000,
                         seed = 1234){
-  # Monte Carlo simulation
+
   set.seed(seed)
 
   df <- data.frame(matrix(0, nrow = n.samples, ncol = 4))
@@ -23,29 +23,17 @@ diffpwr.one <- function(n.samples = 1000,
   df$LL <- atanh(df$point) - (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3)))
   df$UL <- atanh(df$point) + (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3)))
 
-  df$check <- ifelse(atanh(hypo.r) > df$LL & atanh(hypo.r) < df$UL, 0, 1)
+  pwr <- round(mean(ifelse(atanh(hypo.r) > df$LL & atanh(hypo.r) < df$UL,
+                           0, 1)),
+               3)
 
-  pwr <- mean(df$check)
+  cov <- round(mean(ifelse(atanh(emp.r) > df$LL & atanh(emp.r) < df$UL,
+                           1, 0)),
+               3)
 
-  res <- data.frame(n, pwr)
+  bias <- round((mean(atanh(df$point)) - atanh(emp.r)) / atanh(emp.r), 3)
 
-  # Visualization of the correlation difference
-
-  LL <- tanh(atanh(emp.r) - (qnorm(1 - (alpha / 2)) / sqrt(n - 3)))
-  UL <- tanh(atanh(emp.r) + (qnorm(1 - (alpha / 2)) / sqrt(n - 3)))
-
-  plot(NA, ylim = c(0, 1),
-       xlim = c(min(c(LL, hypo.r, UL)), max(c(LL, hypo.r, UL))),
-       ylab = "", xlab = "Correlation",
-       yaxt = "none")
-
-  points(x = emp.r, y = .5, pch = 15)
-  abline(v = hypo.r, lty = "dashed", col = "red")
-  segments(x0 = LL,
-           x1 = UL,
-           y0 = .5)
-
-  # Return output
+  res <- data.frame(emp.r, hypo.r, n, cov, bias, pwr)
 
   return(res)
 }

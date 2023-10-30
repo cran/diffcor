@@ -1,6 +1,7 @@
 \name{diffcor.two}
 \alias{diffcor.two}
-\title{Fisher's z-Tests for differences of correlations in two independent samples}
+\title{Fisher's z-Tests for differences of correlations in two independent
+samples}
 \usage{
 diffcor.two(r1, r2, n1, n2, alpha = .05, cor.names = NULL,
 alternative = c("one.sided", "two.sided"), digit = 3)
@@ -20,12 +21,13 @@ or two-sided differences}
 }
 
 \description{
-The function tests whether the correlation between two variables differs across
-two independent studies/samples. The output provides the compared correlations,
-test statistic as z-score, p-values, confidence intervals of the empirical
-correlations, and the effect size Cohens q. According to Cohen (1988), q = |.10|,
-|.30| and |.50| are considered small, moderate, and large differences,
-respectively.}
+Tests whether the correlation between two variables differs across two
+independent studies/samples. The correlations are automatically transformed with
+the Fisher z-transformation prior to computations. The output provides the
+compared correlations, test statistic as z-score, p-values, confidence intervals
+of the empirical correlations, and the effect size Cohens q. According to Cohen
+(1988), q = |.10|, |.30| and |.50| are considered small, moderate, and large
+differences, respectively.}
 
 \value{
 \item{r1}{Vector of the empirically observed correlations in the first sample}
