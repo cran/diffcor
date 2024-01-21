@@ -43,11 +43,11 @@ diffpwr.two <- function(n1,
 
   colnames(df_t) <- c("point1", "point2", "SE1", "SE2")
 
-  df_t$LL1 <- atanh(df_t$point1) - (qnorm(1 - (alpha / 2)) * df_t$SE1)
-  df_t$UL1 <- atanh(df_t$point1) + (qnorm(1 - (alpha / 2)) * df_t$SE1)
+  df_t$LL1 <- tanh(atanh(df_t$point1) - (qnorm(1 - (alpha / 2)) * df_t$SE1))
+  df_t$UL1 <- tanh(atanh(df_t$point1) + (qnorm(1 - (alpha / 2)) * df_t$SE1))
 
-  df_t$LL2 <- atanh(df_t$point2) - (qnorm(1 - (alpha / 2)) * df_t$SE2)
-  df_t$UL2 <- atanh(df_t$point2) + (qnorm(1 - (alpha / 2)) * df_t$SE2)
+  df_t$LL2 <- tanh(atanh(df_t$point2) - (qnorm(1 - (alpha / 2)) * df_t$SE2))
+  df_t$UL2 <- tanh(atanh(df_t$point2) + (qnorm(1 - (alpha / 2)) * df_t$SE2))
 
 
   pwr <- round(ifelse(r1 < r2,
@@ -55,17 +55,21 @@ diffpwr.two <- function(n1,
                       mean(df_t$UL2 < df_t$LL1)),
                3)
 
-  cov1 <- round(mean(ifelse(atanh(r1) > df_t$LL1 & atanh(r1) < df_t$UL1,
+  cov1 <- round(mean(ifelse(tanh(atanh(r1)) > df_t$LL1
+                            & tanh(atanh(r1)) < df_t$UL1,
                             1, 0)),
                 3)
 
-  cov2 <- round(mean(ifelse(atanh(r2) > df_t$LL2 & atanh(r2) < df_t$UL2,
+  cov2 <- round(mean(ifelse(tanh(atanh(r2)) > df_t$LL2
+                            & tanh(atanh(r2)) < df_t$UL2,
                             1, 0)),
                 3)
 
-  bias1 <- round((mean(atanh(df_t$point1)) - atanh(r1)) / atanh(r1), 3)
+  bias1 <- round((mean(tanh(atanh(df_t$point1))) - tanh(atanh(r1)))
+                 / tanh(atanh(r1)), 3)
 
-  bias2 <- round((mean(atanh(df_t$point2)) - atanh(r2)) / atanh(r2), 3)
+  bias2 <- round((mean(tanh(atanh(df_t$point2))) - tanh(atanh(r2)))
+                 / tanh(atanh(r2)), 3)
 
   res <- data.frame(r1, n1, cov1, bias1, r2, n2, cov2, bias2, pwr)
 

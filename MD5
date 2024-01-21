@@ -1,12 +1,12 @@
-3b95ea0b3430566afaf5352d8cdda4aa *DESCRIPTION
+1deb5aecb7e37122cf7bc51162021020 *DESCRIPTION
 f5453a90b911455e865d54b75ab3dbb7 *NAMESPACE
 1ff1bc3c756aca20cdfc51fdd3dc1e23 *R/diffcor.dep.R
 6fb5d8c533d50e0e68cb41f003878271 *R/diffcor.one.R
 e3fe856d20bbabd042168925b05683d5 *R/diffcor.two.R
-8444707f198535319c7b8c67fc7621c2 *R/diffpwr.dep.R
-601a21708907261c9a1a202715071471 *R/diffpwr.one.R
-078047855cf55a23a0933ecf5c284d9b *R/diffpwr.two.R
-160d3d38fd4cd9b1d555c09728603792 *R/visual_mc.R
+71bb2c62752c31babdb1f4fee627300f *R/diffpwr.dep.R
+735e1a383fc5802109e297218bdbc09e *R/diffpwr.one.R
+bcb6e10281042acd911749f0c7369bf9 *R/diffpwr.two.R
+6e878b6e35f3b5344efe4491d8ef196b *R/visual_mc.R
 db38c214ca53cf321a667e68d5a2f143 *man/diffcor.dep.Rd
 325ed4bfeb67f9df9b43f3f4c4a42f5e *man/diffcor.one.Rd
 222364b03678353d6c92e86d9ee8f078 *man/diffcor.two.Rd

@@ -37,30 +37,36 @@ diffpwr.dep <- function(n,
                            1, 0)),
                3)
 
-  df$LL12 <- atanh(df$r12) - (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3)))
-  df$UL12 <- atanh(df$r12) + (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3)))
+  df$LL12 <- tanh(atanh(df$r12) - (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3))))
+  df$UL12 <- tanh(atanh(df$r12) + (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3))))
 
-  df$LL13 <- atanh(df$r13) - (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3)))
-  df$UL13 <- atanh(df$r13) + (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3)))
+  df$LL13 <- tanh(atanh(df$r13) - (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3))))
+  df$UL13 <- tanh(atanh(df$r13) + (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3))))
 
-  df$LL23 <- atanh(df$r23) - (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3)))
-  df$UL23 <- atanh(df$r23) + (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3)))
+  df$LL23 <- tanh(atanh(df$r23) - (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3))))
+  df$UL23 <- tanh(atanh(df$r23) + (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3))))
 
-  cov12 <- round(mean(ifelse(atanh(r12) > df$LL12 & atanh(r12) < df$UL12,
+  cov12 <- round(mean(ifelse(tanh(atanh(r12)) > df$LL12
+                             & tanh(atanh(r12)) < df$UL12,
                              1, 0)),
                  3)
 
-  cov13 <- round(mean(ifelse(atanh(r13) > df$LL13 & atanh(r13) < df$UL13,
+  cov13 <- round(mean(ifelse(tanh(atanh(r13)) > df$LL13
+                             & tanh(atanh(r13)) < df$UL13,
                              1, 0)),
                  3)
 
-  cov23 <- round(mean(ifelse(atanh(r23) > df$LL23 & atanh(r23) < df$UL23,
+  cov23 <- round(mean(ifelse(tanh(atanh(r23)) > df$LL23
+                             & tanh(atanh(r23)) < df$UL23,
                              1, 0)),
                  3)
 
-  bias12 <- round((mean(atanh(df$r12)) - atanh(r12)) / atanh(r12), 3)
-  bias13 <- round((mean(atanh(df$r13)) - atanh(r13)) / atanh(r13), 3)
-  bias23 <- round((mean(atanh(df$r23)) - atanh(r23)) / atanh(r23), 3)
+  bias12 <- round((mean(tanh(atanh(df$r12))) - tanh(atanh(r12)))
+                  / tanh(atanh(r12)), 3)
+  bias13 <- round((mean(tanh(atanh(df$r13))) - tanh(atanh(r13)))
+                  / tanh(atanh(r13)), 3)
+  bias23 <- round((mean(tanh(atanh(df$r23))) - tanh(atanh(r23)))
+                  / tanh(atanh(r23)), 3)
 
   res <- data.frame(r12, cov12, bias12,
                     r13, cov13, bias13,

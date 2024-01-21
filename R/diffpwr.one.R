@@ -20,18 +20,21 @@ diffpwr.one <- function(n,
     df$point[j] <- cor(frame$X1, frame$X2)
   }
 
-  df$LL <- atanh(df$point) - (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3)))
-  df$UL <- atanh(df$point) + (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3)))
+  df$LL <- tanh(atanh(df$point) - (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3))))
+  df$UL <- tanh(atanh(df$point) + (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3))))
 
-  pwr <- round(mean(ifelse(atanh(hypo.r) > df$LL & atanh(hypo.r) < df$UL,
+  pwr <- round(mean(ifelse(tanh(atanh(hypo.r)) > df$LL &
+                             tanh(atanh(hypo.r)) < df$UL,
                            0, 1)),
                3)
 
-  cov <- round(mean(ifelse(atanh(emp.r) > df$LL & atanh(emp.r) < df$UL,
+  cov <- round(mean(ifelse(tanh(atanh(emp.r)) > df$LL
+                           & tanh(atanh(emp.r)) < df$UL,
                            1, 0)),
                3)
 
-  bias <- round((mean(atanh(df$point)) - atanh(emp.r)) / atanh(emp.r), 3)
+  bias <- round((mean(tanh(atanh(df$point))) - tanh(atanh(emp.r))) /
+                  tanh(atanh(emp.r)), 3)
 
   res <- data.frame(emp.r, hypo.r, n, cov, bias, pwr)
 

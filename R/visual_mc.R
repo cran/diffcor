@@ -18,8 +18,8 @@ visual_mc <- function(emp.r,
     df$point[j] <- cor(frame$X1, frame$X2)
   }
 
-  df$LL <- atanh(df$point) - (qnorm(1 - (alpha/2)) * (1/sqrt(n - 3)))
-  df$UL <- atanh(df$point) + (qnorm(1 - (alpha/2)) * (1/sqrt(n - 3)))
+  df$LL <- tanh(atanh(df$point) - (qnorm(1 - (alpha/2)) * (1/sqrt(n - 3))))
+  df$UL <- tanh(atanh(df$point) + (qnorm(1 - (alpha/2)) * (1/sqrt(n - 3))))
 
   plot(NA, ylim = c(1, n.intervals), xlim = c(min(c(min(df$LL - .05),
                                                     max(df$UL + .05))),
