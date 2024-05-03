@@ -7,10 +7,14 @@ inspect the simulated parameters visually. To this end, visual_mc() can be used
 to visualize the simulated parameters (including corresponding confidence
 intervals) in relation to the targeted parameter.}
 \usage{
-visual_mc(emp.r, n, alpha = .05, n.intervals = 100, seed = 1234)}
+visual_mc(rho,
+          n,
+          alpha = .05,
+          n.intervals = 100,
+          seed = 1234)}
 
 \arguments{
-  \item{emp.r}{Targeted correlation coefficient of the simulation.}
+  \item{rho}{Targeted correlation coefficient of the simulation.}
   \item{n}{An integer reflecting the sample size.}
   \item{alpha}{Type I error. Default is .05.}
   \item{n.intervals}{An integer reflecting the number of simulated parameters
@@ -22,7 +26,7 @@ visual_mc(emp.r, n, alpha = .05, n.intervals = 100, seed = 1234)}
 A plot in which the targeted correlation coefficient is visualized with a dashed
 red line and the simulated correlation coefficients are visualized by black
 squares and confidence intervals (level depending on the specification made in
-the argument 'alpha').}
+the argument alpha).}
 
 \references{
 Muthén, L. K., & Muthén, B. O. (2002). How to use a Monte Carlo study to decide
@@ -35,7 +39,7 @@ https://doi.org/10.1207/S15328007SEM0904_8}
 \keyword{utilities}
 \keyword{graphs}
 
-\examples{visual_mc(emp.r = .25,
+\examples{visual_mc(rho = .25,
                     n = 300,
                     alpha = .05,
                     n.intervals = 100,

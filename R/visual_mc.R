@@ -1,4 +1,4 @@
-visual_mc <- function(emp.r,
+visual_mc <- function(rho,
                       n,
                       alpha = .05,
                       n.intervals = 100,
@@ -11,8 +11,8 @@ visual_mc <- function(emp.r,
 
   df$i <- 1:n.intervals
   for (j in 1:n.intervals) {
-    frame <- data.frame(mvrnorm(n = n, mu = c(0, 0), Sigma = matrix(c(1, emp.r,
-                                                                      emp.r, 1),
+    frame <- data.frame(mvrnorm(n = n, mu = c(0, 0), Sigma = matrix(c(1, rho,
+                                                                      rho, 1),
                                                                     2, 2)))
 
     df$point[j] <- cor(frame$X1, frame$X2)
@@ -27,7 +27,7 @@ visual_mc <- function(emp.r,
                                                     max(df$UL + .05)))),
        ylab = "", xlab = "r", yaxt = "none", frame.plot = FALSE)
 
-  abline(v = emp.r, lty = "dashed", col = "red")
+  abline(v = rho, lty = "dashed", col = "red")
 
   for(i in 1:n.intervals){
     points(x = df$point[i], y = i, pch = 15)

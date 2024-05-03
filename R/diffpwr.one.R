@@ -1,6 +1,6 @@
 diffpwr.one <- function(n,
-                        emp.r,
-                        hypo.r,
+                        r,
+                        rho,
                         alpha = .05,
                         n.samples = 1000,
                         seed = 1234){
@@ -14,8 +14,8 @@ diffpwr.one <- function(n,
   for (j in 1:n.samples) {
     frame <- data.frame(mvrnorm(n = n,
                                 mu = c(0, 0),
-                                Sigma = matrix(c(1, emp.r,
-                                                 emp.r, 1),
+                                Sigma = matrix(c(1, r,
+                                                 r, 1),
                                                2, 2)))
     df$point[j] <- cor(frame$X1, frame$X2)
   }
@@ -23,20 +23,26 @@ diffpwr.one <- function(n,
   df$LL <- tanh(atanh(df$point) - (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3))))
   df$UL <- tanh(atanh(df$point) + (qnorm(1 - (alpha / 2)) * (1 / sqrt(n - 3))))
 
-  pwr <- round(mean(ifelse(tanh(atanh(hypo.r)) > df$LL &
-                             tanh(atanh(hypo.r)) < df$UL,
+  pwr <- round(mean(ifelse(tanh(atanh(rho)) > df$LL &
+                             tanh(atanh(rho)) < df$UL,
                            0, 1)),
                3)
 
-  cov <- round(mean(ifelse(tanh(atanh(emp.r)) > df$LL
-                           & tanh(atanh(emp.r)) < df$UL,
+  cov <- round(mean(ifelse(tanh(atanh(r)) > df$LL
+                           & tanh(atanh(r)) < df$UL,
                            1, 0)),
                3)
 
-  bias <- round((mean(tanh(atanh(df$point))) - tanh(atanh(emp.r))) /
-                  tanh(atanh(emp.r)), 3)
+  bias_M <- round((mean(tanh(atanh(df$point))) - tanh(atanh(r))) /
+                    tanh(atanh(r)), 3)
 
-  res <- data.frame(emp.r, hypo.r, n, cov, bias, pwr)
+  bias_Md <- round((median(tanh(atanh(df$point))) - tanh(atanh(r))) /
+                     tanh(atanh(r)), 3)
+
+  res <- data.frame(
+    Parameters = c("r", "rho", "n", "cov", "bias_M", "bias_Md", "pwr"),
+
+    Estimates = c(r, rho, n, cov, bias_M, bias_Md, pwr))
 
   return(res)
 }
