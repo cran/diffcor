@@ -4,7 +4,7 @@
 correlations that were observed in two independent samples}
 \description{Computation of a Monte Carlo simulation to estimate the statistical
 power the correlation difference between the correlation coefficients detected
-in two indepdenent samples (e.g., original study and replication study).}
+in two independent samples (e.g., original study and replication study).}
 \usage{
 diffpwr.two(n1,
             n2,

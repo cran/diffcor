@@ -1,4 +1,4 @@
 exportPattern("^[[:alpha:]]+")
-importFrom("stats", "qnorm", "pnorm", "cor", "median")
+importFrom("stats", "qnorm", "pnorm", "cor", "median", "quantile")
 importFrom("MASS", "mvrnorm")
 importFrom("graphics", "abline", "points", "segments")

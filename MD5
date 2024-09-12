@@ -1,5 +1,8 @@
-8379485fa3971fdabea9b6f36aaad9dd *DESCRIPTION
-10e7f5032acbdac02e0d952045ea75b1 *NAMESPACE
+7991c48bbd1dbd32bbd4eeefe749e9b3 *DESCRIPTION
+8c428fe4f06e6909369b47307081f7f8 *NAMESPACE
+adfc1cbf87f0836a945a5cb89c578631 *R/bootcor.dep.R
+d8735888e262e2c2674d4db39efed482 *R/bootcor.one.R
+8dea49163cb4aeaa1cc65db8319d657e *R/bootcor.two.R
 1ff1bc3c756aca20cdfc51fdd3dc1e23 *R/diffcor.dep.R
 6fb5d8c533d50e0e68cb41f003878271 *R/diffcor.one.R
 e3fe856d20bbabd042168925b05683d5 *R/diffcor.two.R
@@ -7,10 +10,13 @@ e3fe856d20bbabd042168925b05683d5 *R/diffcor.two.R
 7c6fb958c4cc38edd8bd47fcd0f9607d *R/diffpwr.one.R
 02facea33cd09e324c63f703e0602187 *R/diffpwr.two.R
 5b15a38cb5c01141c7a35128e4ea6e5d *R/visual_mc.R
+d6fce38a800d398687492e151ad685a5 *man/bootcor.dep.Rd
+8fe95388ca84607a004cecc702a5f75b *man/bootcor.one.Rd
+f745add51306bd262422954567afd439 *man/bootcor.two.Rd
 db38c214ca53cf321a667e68d5a2f143 *man/diffcor.dep.Rd
 325ed4bfeb67f9df9b43f3f4c4a42f5e *man/diffcor.one.Rd
 222364b03678353d6c92e86d9ee8f078 *man/diffcor.two.Rd
 d69a67f7bc9502fd357bc59d83bb571b *man/diffpwr.dep.Rd
-581f2ce105343409b44e4cbd97dba34b *man/diffpwr.one.Rd
-c19e9fd8bca2c7b426c8aeba675376e2 *man/diffpwr.two.Rd
+87b2f8ea110871acdac46c6c8b4efa0f *man/diffpwr.one.Rd
+aa4def88a6a4e6ec840533ac252ee9f8 *man/diffpwr.two.Rd
 80263f800cb61d01544fddd02b6e9e2b *man/visual_mc.Rd

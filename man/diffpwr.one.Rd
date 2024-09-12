@@ -1,10 +1,10 @@
 \name{diffpwr.one}
 \alias{diffpwr.one}
-\title{Monte Carlo Simulation for the correlation difference between an expected
-and an observed correlation}
+\title{Difference Between an Assumed Sample Correlation and a Population
+Correlation}
 \description{Computation of a Monte Carlo simulation to estimate the statistical
-power the correlation difference between an observed correlation coefficient and
-an a fixed value against which the correlation should be tested.}
+power the correlation difference between an assumed sample correlation and an
+assumed population correlation against which the correlation should be tested.}
 \usage{
 diffpwr.one(n,
             r,
